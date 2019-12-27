@@ -11,17 +11,23 @@
 
 	<artifactId>cli</artifactId>
 
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mainClass>exp.McjCli</mainClass>
+	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>net.sf.jsefa</groupId>
-			<artifactId>jsefa</artifactId>
-			<version>1.1.1.RELEASE</version>
+			<groupId>info.picocli</groupId>
+			<artifactId>picocli</artifactId>
+			<version>4.1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>microCJ</groupId>
 			<artifactId>microCJ-core</artifactId>
 			<version>1.0-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>
