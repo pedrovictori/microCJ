@@ -1,8 +1,6 @@
-package launcher;
+package exp;
 
 import core.World;
-import net.sf.jsefa.csv.annotation.CsvDataType;
-
 import java.util.ArrayList;
 import java.util.List;
 /*
@@ -18,7 +16,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
  * Class for holding information related to a single experiment in a distributed multi-experiment scenario. The class is annotated to make it possible to map a CSV record directly into an Experiment instance.
  * @author Pedro Victori
  */
-@CsvDataType
+
 public class Experiment{
 	private String settingsFile;
 	private int iterations;
@@ -42,7 +40,7 @@ public class Experiment{
 		}
 	}
 
-	public boolean start() {
+	public void start() {
 		for (World world : worlds) {
 			world.start();
 		}
