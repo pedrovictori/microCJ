@@ -24,9 +24,8 @@ public class McjCli implements Callable<Integer> {
 
 	@Override
 	public Integer call() throws Exception {
-		System.out.println(settings);
-		/*Experiment experiment = new Experiment(settings, iterations, steps);
-		experiment.start();*/
+		Experiment experiment = new Experiment(settings, iterations, steps);
+		experiment.start();
 		return 0;
 	}
 }

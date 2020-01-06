@@ -13,7 +13,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 /**
- * Class for holding information related to a single experiment in a distributed multi-experiment scenario. The class is annotated to make it possible to map a CSV record directly into an Experiment instance.
+ * Class for holding information related to a single world in a distributed multi-world scenario.
  * @author Pedro Victori
  */
 
@@ -29,14 +29,14 @@ public class Experiment{
 		this.iterations = iterations;
 		this.stepLimit = stepLimit;
 
-		//create a World instance for each repetition
+		//create a World instance for each iteration
 		for (int i = 0; i < iterations; i++) {
-			World world = new World(stepLimit);
+			World world = new World(settingsFile, stepLimit);
 			worlds.add(world);
 			world.whenFinished(() -> {
 				worlds.remove(world);
 				//todo integrate statistics
-			}); //add a listener for when the simulation reaches the step limit
+			}); //adds a listener for when the simulation reaches the step limit
 		}
 	}
 
