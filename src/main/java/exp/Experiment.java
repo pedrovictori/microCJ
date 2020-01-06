@@ -32,6 +32,7 @@ public class Experiment{
 		//create a World instance for each iteration
 		for (int i = 0; i < iterations; i++) {
 			World world = new World(settingsFile, stepLimit);
+			world.setup();
 			worlds.add(world);
 			world.whenFinished(() -> {
 				worlds.remove(world);
