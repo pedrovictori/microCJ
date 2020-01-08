@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 @Command(name = "microcj", mixinStandardHelpOptions = true, version = "0.3")
-public class McjCli implements Callable<Integer> {
+public class McjCli implements Callable<Void> {
 	@Parameters(hidden = true)  // "hidden": don't show this parameter in usage help message
 			List<String> allParameters; // no "index" attribute: captures _all_ arguments (as Strings)
 
@@ -18,14 +18,13 @@ public class McjCli implements Callable<Integer> {
 
 	public static void main(String[] args) {
 		System.out.println("args" + Arrays.toString(args));
-		int exitCode = new CommandLine(new McjCli()).execute(args);
-		System.exit(exitCode);
+		new CommandLine(new McjCli()).execute(args);
 	}
 
 	@Override
-	public Integer call() throws Exception {
+	public Void call() {
 		Experiment experiment = new Experiment(settings, iterations, steps);
 		experiment.start();
-		return 0;
+		return null;
 	}
 }

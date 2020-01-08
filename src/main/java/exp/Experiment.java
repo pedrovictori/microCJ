@@ -36,6 +36,9 @@ public class Experiment{
 			worlds.add(world);
 			world.whenFinished(() -> {
 				worlds.remove(world);
+				if (worlds.isEmpty()) {
+					System.exit(0);
+				}
 				//todo integrate statistics
 			}); //adds a listener for when the simulation reaches the step limit
 		}
